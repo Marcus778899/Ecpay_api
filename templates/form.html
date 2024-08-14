@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>填寫表單</title>
+</head>
+<body>
+    <h1>填寫表單</h1>
+    <form method="POST" action="{{ url_for('result') }}">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.item.label }}<br>
+            {{ form.item(size=32) }}<br>
+            {% for error in form.item.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+</body>
+</html>
